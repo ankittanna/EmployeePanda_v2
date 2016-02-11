@@ -1,0 +1,30 @@
+<ion-view view-title="Vendors" class="appcomponent vendorlist">
+    <ion-nav-title>
+      <img src="img/Home_TopBar_withoutIcons.png" style="height:60px">
+    </ion-nav-title>
+  <ion-content>
+
+      <div class="row transbox">
+            <div class="list list-inset" style="width:100%">
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search" ng-model="vendorMenu.searchMenuKey">
+            </label>
+        </div>
+        </div>
+
+    <label class="item-input">
+        <span class="input-label">
+            <h2 class="title">Restaurants</h2>
+        </span>
+    </label>
+
+    <ion-list>
+      <ion-item ng-repeat="vendor in vendors | filter: vendorList.searchVendorStr" href="#/app/vendors/{{vendor._id}}" ng-click="vendorList.selectVendor(vendor)">
+        <div class="row vendoritem" style="background-image: url(img/{{ vendor.imgname }})">
+            <div class="col transbox">{{vendor.name}}</div>
+        </div>
+    </ion-list>
+
+  </ion-content>
+</ion-view>

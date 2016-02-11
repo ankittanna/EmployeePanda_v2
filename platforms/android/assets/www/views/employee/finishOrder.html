@@ -1,0 +1,89 @@
+<ion-view view-title="Order">
+  <ion-nav-title>
+        <img src="img/Home_TopBar_withoutIcons.png" style="height:60px">
+    </ion-nav-title>
+  <ion-content>
+    <div class="list" style="margin-bottom: 0; background-image: url(../../img/{{ finishOrder.vendorInfo.imgname }})">
+            <label class="item item-input vendoritem" style="background-image: url(img/{{ finishOrder.vendorInfo.imgname }})">
+
+            <div class="row" style="position:absolute">
+                    <h1 class="title">{{finishOrder.orderDetails.vendorName}}</h1>
+             </div>
+            </label>
+      </div>
+
+
+    <div class="row">
+      <div class="col-10"></div>
+      <div class="col textAlignCenter">
+             <h2 class="title">Order Confirmed</h2>
+      </div>
+      <div class="col-10"></div>
+    </div>
+
+    <div class="card orderCard">
+      <div class="item-text-wrap">
+
+        <ion-list>
+          <div class="row">
+            <div class="col-10"></div>
+            <div class="col textAlignCenter">
+                   <h2 class="title">{{finishOrder.orderDetails.vendorName}}</h2>
+            </div>
+            <div class="col-10"></div>
+          </div>
+
+          <label class="item item-input">
+            <div class="row">
+              <div class="col"><b>Order Id</b><br>{{finishOrder.orderDetails.ordernumber}}</div>
+              <div class="col"><b>Date & Time</b><br>{{finishOrder.convertTimeFormat(finishOrder.orderDetails.ordertime)}}</div>
+            </div>
+          </label>
+
+            <ion-item>
+              <div class="row">
+                  <div class="col">
+                      <div class="row">
+                        <div class="col">
+                          <img src="img/location.png" class="locationIcon">PDC1
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                            <img src="img/clock.png" class="clockIcon"><br>ETA 20 Mins
+                        </div>
+                      </div>
+                      <div class="row">
+                          <div class="col">
+                            <b>Order Status: </b><label class="{{myOrdersList[myOrders.currentIndex].status == 'Order is Ready'?'readyStatus':'inProgressStatus'}}">{{finishOrder.orderDetails.status}}</label>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col">
+                    <div class="row">
+                      <div id="orderInfo" class="qrcode">
+
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </ion-item>
+              <ion-item>
+                  <div class="row">
+                      <div class="col"><b>Total Value</b> Rs. {{finishOrder.vendorDetails.totalCost}}</div>
+                  </div>
+                </ion-item>
+          </ion-list>
+      </div>
+    </div>
+ <!-- <div star-rating ng-model="rating.rating1" max="10" on-rating-select="rating.rateFunction(rating)"></div> -->
+  </ion-content>
+
+  <div class="bar bar-footer">
+         <button class="button button-balanced button-full" ng-click="finishOrder.backToHome()">Back to Home</button>
+    </div>
+</ion-view>
+
+
+
+

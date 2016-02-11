@@ -1,0 +1,60 @@
+<ion-view view-title="Order" class="appcomponent vendororder">
+    <ion-nav-title>
+        <img src="img/Home_TopBar_withoutIcons.png" style="height:60px">
+    </ion-nav-title>
+  <ion-content>
+      <div class="list" style="margin-bottom: 0;">
+            <label class="item item-input vendoritem" style="background-image: url(img/{{ userInfo.imgname }})">
+           
+            <div class="row" style="position:absolute">
+                    <h1>{{userInfo.name}}</h1>
+             </div>        
+                
+            </label>
+        </div>
+        <label class="item-input">
+            <h2 class="title">Order Details</h2>
+        </label>
+    
+        <ion-list>
+        <ion-item id="ionicCheckoutBand">
+            <div class="row checkoutBand">
+                <div class="col"><b>Order ID: </b></div>          
+                <div class="col">{{vendorOrder.orderInfo.ordernumber}}</div>           
+            </div>
+            <div class="row checkoutBand">
+                <div class="col"><b>Date & Time: </b></div>          
+                <div class="col">{{vendorOrder.convertTimeFormat(vendorOrder.orderInfo.ordertime)}}</div>           
+            </div>
+            <div class="row checkoutBand">
+                <div class="col"><b>Name</b></div>          
+                <div class="col">{{vendorOrder.orderInfo.orderbyname}}</div>           
+            </div>
+        </ion-item>
+    </ion-list>
+        
+    <ion-list>
+      <ion-item ng-repeat="menuItem in vendorOrder.orderMenu">
+        <div class="row">
+            <div class="col">{{menuItem.itemname}}</div>
+            <div class="col">{{menuItem.quantity}}</div>
+            <div class="col">Rs. {{menuItem.rate}}</div>           
+        </div>
+      </ion-item>
+    </ion-list>
+   <div class="row">
+       <div class="col"></div>  
+    <div class="col"><b>Total Value:</b></div>          
+    <div class="col"><b>Rs. {{vendorOrder.orderInfo.total}}</b></div>           
+     </div>
+
+ <!-- <div star-rating ng-model="rating.rating1" max="10" on-rating-select="rating.rateFunction(rating)"></div> -->
+ 
+  </ion-content>
+  
+    <div class="bar bar-footer">       
+        <button class="button button-balanced button-full-footer" ng-click="vendorOrder.changeOrderStatus(vendorOrder.orderInfo._id,orderInfo)"><p class="title">{{orderInfo}}<p></button>
+    </div>
+    
+    
+</ion-view>

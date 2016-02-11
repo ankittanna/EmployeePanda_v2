@@ -1,0 +1,44 @@
+<ion-view view-title="Employee Panda: Sign Up">
+    <ion-content class="padding">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col"><img ng-src="img/KFPanda.png"></div>
+            <div class="col"></div>
+        </div>
+    <form name="signupForm" ng-submit="signup.submitSignupForm(signupForm.$valid)" novalidate>
+        <div class="list list-inset">
+            <label class="item item-input">
+                <input class="form-control" type="text" name="name" placeholder="Name" ng-model="data.name" required ng-minlength="1" ng-maxlength="20" ng-pattern="/^[a-zA-Z]*$/">
+            </label>
+            <p ng-show="signupForm.name.$invalid && !signupForm.name.$pristine && submitted">Your name is required.</p>
+            <p ng-show="signupForm.name.$invalid && signupForm.name.$error.pattern && !signupForm.name.$pristine && submitted">Only alphabets allowed in name.</p>
+            <p ng-show="signupForm.name.$invalid && signupForm.name.$error.minlength && !signupForm.name.$pristine && submitted">Name has to be atleast 1 character.</p>
+            <p ng-show="signupForm.name.$invalid && signupForm.name.$error.maxlength && !signupForm.name.$pristine && submitted">Name cannot be more than 20 characters.</p>
+            
+            <label class="item item-input">
+              <input type="email" name="email" placeholder="Email" ng-model="data.emailid">
+            </label>
+            <p ng-show="signupForm.email.$invalid && !signupForm.email.$pristine && submitted">Enter a valid email.</p>
+            
+            <label class="item item-input">
+              <input type="number" name="phonenumber" placeholder="Mobile Number" ng-model="data.phonenumber" ng-minlength="10" ng-maxlength="10" required>
+            </label>
+            <p ng-show="signupForm.phonenumber.$error.minlength && submitted">PhoneNumber should have 10 Digits</p>
+            <p ng-show="signupForm.phonenumber.$error.maxlength && submitted">PhoneNumber should have 10 Digits</p>
+          
+            <label class="item item-input item-select">
+                        <div class="input-label">
+                        Location
+                        </div>
+                        <select ng-model="data.location">
+                            <option selected>PDC1</option>
+                            <option>PDC2</option>
+                            <option>PDC3</option>
+                            <option>MDC1</option>
+                        </select>
+            </label>
+        </div>
+        <button type="submit" class="button button-block button-assertive">Sign Up</button>
+    </form>        
+    </ion-content>
+</ion-view>
