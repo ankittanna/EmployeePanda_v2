@@ -48,16 +48,19 @@ angular.module('EmployeePanda', ['ionic', 'EmployeePanda.controllers', 'Employee
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
    .state('login', {
+      cache: false,
      url: '/login',
      templateUrl: 'views/appComponents/login.html',
      controller: 'LoginCtrl',
      controllerAs: 'login'
    }).state('signup', {
+            cache: false,
          url: '/signup',
          templateUrl: 'views/appComponents/signup.html',
          controller: 'SignupCtrl',
          controllerAs: 'signup'
      }).state('app', {
+            cache: false,
          url: '/app',
          abstract: true,
          templateUrl: 'views/appComponents/menu.html',
@@ -66,6 +69,7 @@ angular.module('EmployeePanda', ['ionic', 'EmployeePanda.controllers', 'Employee
        })
 
       .state('app.vendorList', {
+            cache: false,
          url: '/vendorlist',
          views: {
            'menuContent': {
@@ -76,6 +80,7 @@ angular.module('EmployeePanda', ['ionic', 'EmployeePanda.controllers', 'Employee
          }
        })
       .state('app.confirmOrder', {
+            cache: false,
          url: '/confirmOrder',
          views: {
            'menuContent': {
@@ -86,6 +91,7 @@ angular.module('EmployeePanda', ['ionic', 'EmployeePanda.controllers', 'Employee
          }
        })
       .state('app.finishOrder', {
+            cache: false,
          url: '/finishOrder',
          views: {
            'menuContent': {
@@ -96,6 +102,7 @@ angular.module('EmployeePanda', ['ionic', 'EmployeePanda.controllers', 'Employee
          }
        })
       .state('app.myOrders', {
+            cache: false,
          url: '/myOrders',
          views: {
            'menuContent': {
@@ -106,6 +113,7 @@ angular.module('EmployeePanda', ['ionic', 'EmployeePanda.controllers', 'Employee
          }
        })
        .state('app.vendorMenu', {
+            cache: false,
          url: '/vendors/:vendorId',
          views: {
            'menuContent': {
@@ -117,6 +125,7 @@ angular.module('EmployeePanda', ['ionic', 'EmployeePanda.controllers', 'Employee
        })
 
        .state('app.vendorhome', {
+            cache: false,
            url: '/vendorhome',
            views: {
              'menuContent': {
@@ -128,6 +137,7 @@ angular.module('EmployeePanda', ['ionic', 'EmployeePanda.controllers', 'Employee
          })
 
          .state('app.vendorOrderList', {
+            cache: false,
            url: '/vendororderlist',
            views: {
              'menuContent': {
@@ -139,6 +149,7 @@ angular.module('EmployeePanda', ['ionic', 'EmployeePanda.controllers', 'Employee
          })
 
          .state('app.orderedMenu', {
+            cache: false,
          url: '/orders/:orderId',
          views: {
            'menuContent': {
