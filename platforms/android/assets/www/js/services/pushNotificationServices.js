@@ -12,7 +12,6 @@ function pushNotificationServices($http,DetailsService,CommonServices, $state) {
                 var deviceId = JSON.parse(message).deviceId;
                 DetailsService.deviceIdInfo.deviceIdInfo.set(deviceId);
                 // window.localStorage['empLocStorage'] = deviceId;
-                alert("DeiviceLocal"+DetailsService.deviceIdInfo.deviceIdInfo.get());
                 $state.go('login');
             };
 
