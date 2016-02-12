@@ -26,6 +26,17 @@ function pushNotificationServices($http,DetailsService,CommonServices, $state) {
 
             var notification = function(notif){
                 alert(notif.message);
+                if(notif.message.indexOf('a new order from'))
+                {
+                    console.log('comes here in vendor');
+                    angular.element(document.getElementById('vendorHomeScreen')).scope().updateOrders();
+                    $state.go('app.vendorhome');
+                } else if(notif.message.indexOf('is ready to collect from'))
+                {
+                // console.log('comes here in employee' + notif.message.indexOf('You have got a new order from') + ' ' + notif.message.indexOf('is ready to collect from'));
+                    // Do Something
+                    // $state.go('app.vendorhome');
+                }
             };
 
             MFPPush.registerNotificationsCallback(notification); 
