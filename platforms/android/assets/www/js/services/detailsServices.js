@@ -70,6 +70,20 @@ angular.module('EmployeePanda.services')
       }
     }
   };
+
+  this.deviceIdInfoStorage = {
+      deviceIdInfo:{
+        set: function(obj){
+          localStorageService.set('deviceIdInfoObject', obj);
+        },
+        get: function(){
+          return localStorageService.get('deviceIdInfoObject');
+        },
+        remove: function(){
+          localStorageService.set('deviceIdInfoObject');
+        }
+      }
+    };
   
 
   return {
@@ -77,6 +91,7 @@ angular.module('EmployeePanda.services')
     loginInfo: this.loginInfoStorage,
     orderInfo: this.orderInfoStorage,
     employeeOrder: this.employeeOrderStorage,
-    confirmedOrderInfo: this.confirmedOrderInfoStorage
+    confirmedOrderInfo: this.confirmedOrderInfoStorage,
+    deviceIdInfo: this.deviceIdInfoStorage
   };
 });

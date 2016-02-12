@@ -265,3 +265,11 @@ text-align: center !important;
 .wrap {
 white-space: normal;
 }
+// Vertically Align Center
+
+.imageAlignMiddle
+{
+    position: absolute;
+    height: 100%;
+    top:50%
+}

@@ -36,7 +36,6 @@ function employeePandaServices($http,DetailsService) {
     return {
         loginUser: loginUser,        
         signupUser: signupUser
-
     };
 }
 

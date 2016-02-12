@@ -8,8 +8,6 @@ angular.module('EmployeePanda.controllers')
     //alert(JSON.stringify(this.loginInfo));
     $scope.numberOfOrders = 0;
 
-    $scope.isBadgeIconVisible = this.loginInfo.role === 'Employee';
-
     EmployeeService.getMyOrders(this.loginInfo.emailid).then(function(orders){
         // Order is Delivered
         var incompleteOrders = orders.map(function(order, index, orders){

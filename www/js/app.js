@@ -6,27 +6,9 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('EmployeePanda', ['ionic', 'EmployeePanda.controllers', 'EmployeePanda.services', 'LocalStorageModule', 'EmployeePanda.directives'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, PushNotificationServices) {
   $ionicPlatform.ready(function() {
-    BMSClient.initialize("http://EmpPanda.mybluemix.net","43694daf-8689-477f-b21d-9e068e18301c");
-            var success = function(message) {
-    			var deviceId = JSON.parse(message).deviceId;
-    			window.localStorage['empLocStorage'] = deviceId;
-    			// alert("DeiviceLocal"+window.localStorage['empLocStorage']);
-    		};
-            var failure = function(message) { alert("Error: " + message); };
-            var settings = {
-                ios: {
-                    alert: true,
-                    badge: true,
-                    sound: true
-                }
-            };
-            MFPPush.registerDevice(settings, success, failure);
-            var notification = function(notif){
-               // alert (notif.message);
-            };
-    		MFPPush.registerNotificationsCallback(notification); 
+    PushNotificationServices.registerPushNotification();
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -47,20 +29,23 @@ angular.module('EmployeePanda', ['ionic', 'EmployeePanda.controllers', 'Employee
 })
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
+   .state('splashScreen', {
+        url: '/splash',
+        templateUrl: 'views/appComponents/splash.html',
+        controller: 'SplashCtrl',
+        controllerAs: 'splash'
+      })
    .state('login', {
-      cache: false,
      url: '/login',
      templateUrl: 'views/appComponents/login.html',
      controller: 'LoginCtrl',
      controllerAs: 'login'
    }).state('signup', {
-            cache: false,
          url: '/signup',
          templateUrl: 'views/appComponents/signup.html',
          controller: 'SignupCtrl',
          controllerAs: 'signup'
      }).state('app', {
-            cache: false,
          url: '/app',
          abstract: true,
          templateUrl: 'views/appComponents/menu.html',
@@ -69,7 +54,6 @@ angular.module('EmployeePanda', ['ionic', 'EmployeePanda.controllers', 'Employee
        })
 
       .state('app.vendorList', {
-            cache: false,
          url: '/vendorlist',
          views: {
            'menuContent': {
@@ -80,7 +64,6 @@ angular.module('EmployeePanda', ['ionic', 'EmployeePanda.controllers', 'Employee
          }
        })
       .state('app.confirmOrder', {
-            cache: false,
          url: '/confirmOrder',
          views: {
            'menuContent': {
@@ -91,7 +74,6 @@ angular.module('EmployeePanda', ['ionic', 'EmployeePanda.controllers', 'Employee
          }
        })
       .state('app.finishOrder', {
-            cache: false,
          url: '/finishOrder',
          views: {
            'menuContent': {
@@ -102,7 +84,6 @@ angular.module('EmployeePanda', ['ionic', 'EmployeePanda.controllers', 'Employee
          }
        })
       .state('app.myOrders', {
-            cache: false,
          url: '/myOrders',
          views: {
            'menuContent': {
@@ -113,7 +94,6 @@ angular.module('EmployeePanda', ['ionic', 'EmployeePanda.controllers', 'Employee
          }
        })
        .state('app.vendorMenu', {
-            cache: false,
          url: '/vendors/:vendorId',
          views: {
            'menuContent': {
@@ -125,7 +105,6 @@ angular.module('EmployeePanda', ['ionic', 'EmployeePanda.controllers', 'Employee
        })
 
        .state('app.vendorhome', {
-            cache: false,
            url: '/vendorhome',
            views: {
              'menuContent': {
@@ -137,7 +116,6 @@ angular.module('EmployeePanda', ['ionic', 'EmployeePanda.controllers', 'Employee
          })
 
          .state('app.vendorOrderList', {
-            cache: false,
            url: '/vendororderlist',
            views: {
              'menuContent': {
@@ -149,7 +127,6 @@ angular.module('EmployeePanda', ['ionic', 'EmployeePanda.controllers', 'Employee
          })
 
          .state('app.orderedMenu', {
-            cache: false,
          url: '/orders/:orderId',
          views: {
            'menuContent': {
@@ -160,5 +137,5 @@ angular.module('EmployeePanda', ['ionic', 'EmployeePanda.controllers', 'Employee
          }
        });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('/splash');
 });

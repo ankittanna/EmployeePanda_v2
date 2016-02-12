@@ -6,27 +6,9 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('EmployeePanda', ['ionic', 'EmployeePanda.controllers', 'EmployeePanda.services', 'LocalStorageModule', 'EmployeePanda.directives'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, PushNotificationServices) {
   $ionicPlatform.ready(function() {
-    BMSClient.initialize("http://EmpPanda.mybluemix.net","43694daf-8689-477f-b21d-9e068e18301c");
-            var success = function(message) {
-    			var deviceId = JSON.parse(message).deviceId;
-    			window.localStorage['empLocStorage'] = deviceId;
-    			alert("DeiviceLocal"+window.localStorage['empLocStorage']);
-    		};
-            var failure = function(message) { alert("Error: " + message); };
-            var settings = {
-                ios: {
-                    alert: true,
-                    badge: true,
-                    sound: true
-                }
-            };
-            MFPPush.registerDevice(settings, success, failure);
-            var notification = function(notif){
-                alert (notif.message);
-            };
-    		MFPPush.registerNotificationsCallback(notification); 
+    PushNotificationServices.registerPushNotification();
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -47,6 +29,12 @@ angular.module('EmployeePanda', ['ionic', 'EmployeePanda.controllers', 'Employee
 })
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
+   .state('splashScreen', {
+        url: '/splash',
+        templateUrl: 'views/appComponents/splash.html',
+        controller: 'SplashCtrl',
+        controllerAs: 'splash'
+      })
    .state('login', {
      url: '/login',
      templateUrl: 'views/appComponents/login.html',
@@ -149,5 +137,5 @@ angular.module('EmployeePanda', ['ionic', 'EmployeePanda.controllers', 'Employee
          }
        });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/login');
+  $urlRouterProvider.otherwise('/splash');
 });
