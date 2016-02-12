@@ -6,7 +6,6 @@ angular.module('EmployeePanda.controllers', [])
 
     this.login = function() {
     $scope.data.deviceid = DetailsService.deviceIdInfo.deviceIdInfo.get();
-
          EPS.loginUser($scope.data).then(function(data) {
             if(data[0].role === 'Employee') {
                 $state.go('app.vendorList');

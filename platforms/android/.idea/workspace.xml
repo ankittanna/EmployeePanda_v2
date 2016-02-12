@@ -39,7 +39,21 @@
         <entry file="file://$PROJECT_DIR$/assets/www/js/services/pushNotificationServices.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
+<<<<<<< HEAD
               <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+=======
+              <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="loginServices.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/www/js/services/loginServices.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="11" column="26" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="26" />
+>>>>>>> origin/master
               <folding />
             </state>
           </provider>
@@ -98,6 +112,7 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="appMenuController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/www/js/controllers/appMenuController.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -110,6 +125,10 @@
       </file>
       <file leaf-file-name="finishOrderController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/www/js/controllers/finishOrderController.js">
+=======
+      <file leaf-file-name="signup.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/www/views/appComponents/signup.html">
+>>>>>>> origin/master
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
@@ -118,11 +137,19 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="confirmOrderController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/www/js/controllers/confirmOrderController.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-3.3333333">
               <caret line="23" column="84" selection-start-line="23" selection-start-column="73" selection-end-line="23" selection-end-column="84" />
+=======
+      <file leaf-file-name="loginController.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/assets/www/js/controllers/loginController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="1.2288135">
+              <caret line="29" column="3" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="3" />
+>>>>>>> origin/master
               <folding />
             </state>
           </provider>
@@ -1761,19 +1788,22 @@
       <list>
         <option value="$PROJECT_DIR$/assets/www/js/services/detailsServices.js" />
         <option value="$PROJECT_DIR$/assets/www/js/services/loginServices.js" />
-        <option value="$PROJECT_DIR$/assets/www/js/controllers/loginController.js" />
         <option value="$PROJECT_DIR$/assets/www/js/app.js" />
         <option value="$PROJECT_DIR$/assets/www/js/controllers/splashController.js" />
         <option value="$PROJECT_DIR$/assets/www/index.html" />
         <option value="$PROJECT_DIR$/assets/www/css/style.css" />
         <option value="$PROJECT_DIR$/assets/www/views/appComponents/splash.html" />
         <option value="$PROJECT_DIR$/assets/www/js/services/pushNotificationServices.js" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/assets/www/views/employee/vendorlist.html" />
         <option value="$PROJECT_DIR$/assets/www/views/employee/finishOrder.html" />
         <option value="$PROJECT_DIR$/assets/www/js/controllers/finishOrderController.js" />
         <option value="$PROJECT_DIR$/assets/www/js/controllers/confirmOrderController.js" />
         <option value="$PROJECT_DIR$/assets/www/views/appComponents/menu.html" />
         <option value="$PROJECT_DIR$/assets/www/js/controllers/appMenuController.js" />
+=======
+        <option value="$PROJECT_DIR$/assets/www/js/controllers/loginController.js" />
+>>>>>>> origin/master
       </list>
     </option>
   </component>
@@ -2255,6 +2285,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/assets/www/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2264,6 +2295,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/www/js/services/pushNotificationServices.js">
+=======
+    <entry file="file://$PROJECT_DIR$/assets/www/js/services/detailsServices.js">
+>>>>>>> origin/master
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
@@ -2295,6 +2329,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/assets/www/views/appComponents/splash.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2365,6 +2400,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> origin/master
     <entry file="file://$PROJECT_DIR$/assets/www/js/controllers/splashController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2429,11 +2466,16 @@
     <entry file="file://$PROJECT_DIR$/assets/www/js/services/pushNotificationServices.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+<<<<<<< HEAD
           <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+=======
+          <caret line="14" column="33" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
+>>>>>>> origin/master
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/assets/www/views/employee/vendorlist.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.0">
@@ -2457,10 +2499,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
+=======
+    <entry file="file://$PROJECT_DIR$/assets/www/js/services/loginServices.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="26" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="26" />
+>>>>>>> origin/master
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/assets/www/js/controllers/finishOrderController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2489,6 +2538,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.21186441">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+=======
+    <entry file="file://$PROJECT_DIR$/assets/www/js/controllers/loginController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2288135">
+          <caret line="29" column="3" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="3" />
+>>>>>>> origin/master
           <folding />
         </state>
       </provider>
