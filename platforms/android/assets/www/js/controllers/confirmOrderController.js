@@ -20,6 +20,9 @@ angular.module('EmployeePanda.controllers')
     	{
     		EmployeeService.confirmEmployeeOrder(this.postOrderObject).then(function(response){
     		DetailsService.confirmedOrderInfo.orderInfo.set(response);
+
+    		angular.element(document.getElementById('sideMenu')).scope().updateBadge();
+
     		$state.go('app.finishOrder');
 	    	}).catch(function(error){
 	    		alert("Error placing your order. Please contact Vendor directly.");

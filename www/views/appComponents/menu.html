@@ -8,8 +8,8 @@
         <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
         </button>
       </ion-nav-buttons>
-      <ion-nav-buttons side="right" ng-show="{{appMenu.loginInfo.role === 'Employee'}}">
-        <img src="img/Home_TopBar_OrderIcon.png" class="bellIconStyle" ng-click="appMenu.goToMyOrders()"><span class="badge badge-assertive bellBadgeStyle" ng-click="appMenu.goToMyOrders()" ng-show="numberOfOrders > 0">{{numberOfOrders}}</span>
+      <ion-nav-buttons side="right">
+        <img src="img/Home_TopBar_OrderIcon.png" class="bellIconStyle" ng-show="role" ng-click="appMenu.goToMyOrders()"><span class="badge badge-assertive bellBadgeStyle" ng-click="appMenu.goToMyOrders()" ng-show="badgeCounter">{{numberOfOrders}}</span>
       </ion-nav-buttons>
     </ion-nav-bar>
     <ion-nav-view name="menuContent"></ion-nav-view>

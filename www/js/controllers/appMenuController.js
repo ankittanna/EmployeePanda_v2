@@ -7,7 +7,10 @@ angular.module('EmployeePanda.controllers')
     this.loginInfo = DetailsService.loginInfo.userInfo.get();
     //alert(JSON.stringify(this.loginInfo));
     $scope.numberOfOrders = 0;
-
+    
+    $scope.role = this.loginInfo.role === 'Employee';
+    $scope.badgeCounter = ($scope.numberOfOrders > 0) && (this.loginInfo.role === 'Employee');
+    
     EmployeeService.getMyOrders(this.loginInfo.emailid).then(function(orders){
         // Order is Delivered
         var incompleteOrders = orders.map(function(order, index, orders){

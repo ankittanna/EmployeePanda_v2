@@ -11,7 +11,7 @@ angular.module('EmployeePanda.controllers')
     };
     
     angular.element('#orderInfo').qrcode({
-        text    : "http://jetienne.com"
+        text    : this.orderDetails.ordernumber
     });
 
     this.convertTimeFormat = function(time){

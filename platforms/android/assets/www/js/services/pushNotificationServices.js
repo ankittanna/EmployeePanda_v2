@@ -12,7 +12,6 @@ function pushNotificationServices($http,DetailsService,CommonServices, $state) {
                 var deviceId = JSON.parse(message).deviceId;
                 DetailsService.deviceIdInfo.deviceIdInfo.set(deviceId);
                 // window.localStorage['empLocStorage'] = deviceId;
-                alert("DeiviceLocal"+DetailsService.deviceIdInfo.deviceIdInfo.get());
                 $state.go('login');
             };
 
@@ -26,7 +25,7 @@ function pushNotificationServices($http,DetailsService,CommonServices, $state) {
             MFPPush.registerDevice(settings, success, failure);
 
             var notification = function(notif){
-                alert("HELLO NOT "+notif.message);
+                alert(notif.message);
             };
 
             MFPPush.registerNotificationsCallback(notification); 
