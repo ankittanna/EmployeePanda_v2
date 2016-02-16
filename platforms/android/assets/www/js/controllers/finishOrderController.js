@@ -1,14 +1,10 @@
 angular.module('EmployeePanda.controllers')
-.controller('FinishOrderController', function($scope, $stateParams, EmployeeService, DetailsService, $state) {  
+.controller('FinishOrderController', function($scope, $stateParams, EmployeeService, DetailsService, $state, $ionicHistory) {
     this.orderDetails = DetailsService.confirmedOrderInfo.orderInfo.get();
     this.vendorDetails = DetailsService.employeeOrder.employeeOrder.get();
 
     // Fetch Vendor Information
     this.vendorInfo = DetailsService.vendorInfo.selectedVendor.get();
-     
-    this.backToHome = function(){
-        $state.go('app.vendorList');
-    };
     
     angular.element('#orderInfo').qrcode({
         text    : this.orderDetails.ordernumber
@@ -29,4 +25,12 @@ angular.module('EmployeePanda.controllers')
         formattedDateTime = orderDate.getDate() + '/' + (orderDate.getMonth() + 1) + '/' +  orderDate.getFullYear() + ' ' + strTime;
         return formattedDateTime;
     };
+
+    this.goToHome = function() {
+    $ionicHistory.nextViewOptions({
+                            disableBack: true
+                          });
+            			$ionicHistory.clearHistory();
+         $state.go('app.vendorList');
+     };
 });

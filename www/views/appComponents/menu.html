@@ -1,4 +1,4 @@
-<ion-side-menus enable-menu-with-back-views="false">
+<ion-side-menus enable-menu-with-back-views="false" id="sideMenu">
   <ion-side-menu-content>
     <ion-nav-bar class="bar-energized">
       <ion-nav-back-button>
@@ -9,7 +9,7 @@
         </button>
       </ion-nav-buttons>
       <ion-nav-buttons side="right">
-        <img src="img/Home_TopBar_OrderIcon.png" class="bellIconStyle" ng-show="role" ng-click="appMenu.goToMyOrders()"><span class="badge badge-assertive bellBadgeStyle" ng-click="appMenu.goToMyOrders()" ng-show="badgeCounter">{{numberOfOrders}}</span>
+        <img src="img/Home_TopBar_OrderIcon.png" class="bellIconStyle" ng-click="appMenu.goToMyOrders()" ng-show="role"><span class="badge badge-assertive bellBadgeStyle" ng-show="role" ng-click="appMenu.goToMyOrders()">{{numberOfOrders}}</span>
       </ion-nav-buttons>
     </ion-nav-bar>
     <ion-nav-view name="menuContent"></ion-nav-view>

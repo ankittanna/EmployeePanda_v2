@@ -1,4 +1,4 @@
-angular.module('EmployeePanda.controllers').controller('VendorCtrl', function($scope,  $state, VendorService, DetailsService) {
+angular.module('EmployeePanda.controllers').controller('VendorCtrl', function($scope,  $state, VendorService, DetailsService, $ionicHistory) {
 
         $scope.orders = [];  
         
@@ -73,6 +73,16 @@ angular.module('EmployeePanda.controllers').controller('VendorCtrl', function($s
         {
             $state.go('app.vendorOrderList');
         };
-    
+
+        this.goToHome = function() {
+        $ionicHistory.nextViewOptions({
+                        disableBack: true
+                      });
+        			$ionicHistory.clearHistory();
+         $state.go('app.vendorhome');
+     };
+
+
+
 });
     

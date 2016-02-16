@@ -1,5 +1,5 @@
 angular.module('EmployeePanda.controllers')
-.controller('VendorOrderController', function($scope, $stateParams, $state, VendorService, DetailsService) {  
+.controller('VendorOrderController', function($scope, $stateParams, $state, VendorService, DetailsService, $ionicHistory) {
      this.orderId = $stateParams.orderId;
      
      // Fetch Vendor Information
@@ -37,6 +37,7 @@ angular.module('EmployeePanda.controllers')
               } else if(status === 'Order is Ready')       
               {
                 $scope.orderInfo = "Order is Delivered";
+                angular.element(document.getElementById('vendorOrderList')).scope().updateOrders();
                 $state.go('app.vendorOrderList');
               }         
           }).catch(function(response) {
@@ -62,8 +63,12 @@ angular.module('EmployeePanda.controllers')
         formattedDateTime = orderDate.getDate() + '/' + (orderDate.getMonth() + 1) + '/' +  orderDate.getFullYear() + ' ' + strTime;
         return formattedDateTime;
     };
-    
+
     this.goToHome = function() {
+        $ionicHistory.nextViewOptions({
+                        disableBack: true
+                      });
+        $ionicHistory.clearHistory();
          $state.go('app.vendorhome');
      };
 

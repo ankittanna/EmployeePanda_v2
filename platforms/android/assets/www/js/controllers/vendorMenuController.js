@@ -1,13 +1,15 @@
 angular.module('EmployeePanda.controllers')
-.controller('VendorMenuController', function($scope, $stateParams, EmployeeService, DetailsService, $state, $ionicPopup) {  
+.controller('VendorMenuController', function($scope, $stateParams, EmployeeService, DetailsService, $state, $ionicPopup, $ionicHistory) {
      // Clearing the existing order
      DetailsService.employeeOrder.employeeOrder.remove();
 
      this.vendorId = $stateParams.vendorId;
-     
-     // Fetch Vendor Information
-     this.vendorInfo = DetailsService.vendorInfo.selectedVendor.get();
-	 
+
+	 // Fetch Vendor Information
+          this.vendorInfo = {};
+
+          angular.copy(DetailsService.vendorInfo.selectedVendor.get(), this.vendorInfo);
+
 	 // Fetch Employee Information
 	 this.employeeInfo = DetailsService.loginInfo.userInfo.get();
 
@@ -60,21 +62,20 @@ angular.module('EmployeePanda.controllers')
 	 	this.orderCost = this.calculateOrderCost();
 	 };
 
-	 this.decreaseCounter = function(counterId){
-	 	if(parseInt(angular.element('#counter'+counterId).val())>0){
-	 		angular.element('#counter'+counterId).val(parseInt(angular.element('#counter'+counterId).val()) -1);
-	 		this.vendorInfo.menu[counterId].quantity = parseInt(angular.element('#counter'+counterId).val());
-	 	}
-	 	this.orderCost = this.calculateOrderCost();
-	 };
+	 this.decreaseCounter = function(menuItem){
 
-	 this.increaseCounter = function(counterId){
-	 	if(parseInt(angular.element('#counter'+counterId).val())<50){
-	 		angular.element('#counter'+counterId).val(parseInt(angular.element('#counter'+counterId).val()) +1);
-	 		this.vendorInfo.menu[counterId].quantity = parseInt(angular.element('#counter'+counterId).val());
-	 	}
-	 	this.orderCost = this.calculateOrderCost();
-	 };
+            if(menuItem.quantity>0){
+                  menuItem.quantity = menuItem.quantity - 1;
+     	 	}
+     	 	this.orderCost = this.calculateOrderCost();
+     	 };
+
+     	 this.increaseCounter = function(menuItem){
+     	 	if(menuItem.quantity<50){
+                  menuItem.quantity = menuItem.quantity + 1;
+     	 	}
+     	 	this.orderCost = this.calculateOrderCost();
+     	 };
 
 	 this.calculateOrderCost = function(){
 	 	var itemsCostForOrder = this.vendorInfo.menu.map(function(item, index, array){
@@ -118,5 +119,19 @@ angular.module('EmployeePanda.controllers')
 
 	 	$state.go('app.confirmOrder');
 	 };
+
+	this.goToHome = function() {
+			$ionicHistory.nextViewOptions({
+                disableBack: true
+              });
+			$ionicHistory.clearHistory();
+             $state.go('app.vendorList');
+         };
+
+         this.clearList = function(){
+              angular.copy(DetailsService.vendorInfo.selectedVendor.get(), this.vendorInfo);
+              this.vendorMenu = this.vendorInfo.menu;
+              alert(this.calculateOrderCost());
+         };
 
 });

@@ -7,7 +7,7 @@
             <label class="item item-input vendoritem" style="background-image: url(img/{{ finishOrder.vendorInfo.imgname }})">
 
             <div class="row" style="position:absolute">
-                    <h1 class="title">{{finishOrder.orderDetails.vendorName}}</h1>
+                    <h1 class="title">{{finishOrder.vendorInfo.name}}</h1>
              </div>
             </label>
       </div>
@@ -28,7 +28,7 @@
           <div class="row">
             <div class="col-10"></div>
             <div class="col textAlignCenter">
-                   <h2 class="title">{{finishOrder.orderDetails.vendorName}}</h2>
+                   <h2 class="title">{{finishOrder.vendorInfo.name}}</h2>
             </div>
             <div class="col-10"></div>
           </div>
@@ -80,7 +80,7 @@
   </ion-content>
 
   <div class="bar bar-footer">
-         <button class="button button-balanced button-full" ng-click="finishOrder.backToHome()">Back to Home</button>
+         <button class="button button-balanced button-full" ng-click="finishOrder.goToHome()">Back to Home</button>
     </div>
 </ion-view>
 

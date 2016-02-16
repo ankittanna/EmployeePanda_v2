@@ -1,4 +1,4 @@
-function pushNotificationServices($http,DetailsService,CommonServices) {
+function pushNotificationServices($http,DetailsService,CommonServices, $state) {
     'use strict';
      var baseUrl = 'https://dmc-meanjs.mybluemix.net/api';       
 
@@ -12,7 +12,7 @@ function pushNotificationServices($http,DetailsService,CommonServices) {
                 var deviceId = JSON.parse(message).deviceId;
                 DetailsService.deviceIdInfo.deviceIdInfo.set(deviceId);
                 // window.localStorage['empLocStorage'] = deviceId;
-                //alert("DeiviceLocal"+DetailsService.deviceIdInfo.deviceIdInfo.get());
+                $state.go('login');
             };
 
             var failure = function(message) { alert("Error Registering Push Notifications: " + message); };
@@ -25,7 +25,18 @@ function pushNotificationServices($http,DetailsService,CommonServices) {
             MFPPush.registerDevice(settings, success, failure);
 
             var notification = function(notif){
-                alert("HELLO NOT "+notif.message);
+                alert(notif.message);
+                if(notif.message.indexOf('a new order from'))
+                {
+                    console.log('comes here in vendor');
+                    angular.element(document.getElementById('vendorHomeScreen')).scope().updateOrders();
+                    $state.go('app.vendorhome');
+                } else if(notif.message.indexOf('is ready to collect from'))
+                {
+                // console.log('comes here in employee' + notif.message.indexOf('You have got a new order from') + ' ' + notif.message.indexOf('is ready to collect from'));
+                    // Do Something
+                    // $state.go('app.vendorhome');
+                }
             };
 
             MFPPush.registerNotificationsCallback(notification); 
@@ -40,4 +51,4 @@ function pushNotificationServices($http,DetailsService,CommonServices) {
 angular.module('EmployeePanda.services')
     .factory('PushNotificationServices', pushNotificationServices);
 
-pushNotificationServices.$inject = ['$http','DetailsService', 'CommonServices'];
+pushNotificationServices.$inject = ['$http','DetailsService', 'CommonServices', '$state'];

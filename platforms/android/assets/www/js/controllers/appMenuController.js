@@ -1,5 +1,5 @@
 angular.module('EmployeePanda.controllers')
-.controller('AppMenuController', function($scope, $state, DetailsService, EmployeeService) {  
+.controller('AppMenuController', function($scope, $state, DetailsService, EmployeeService, $ionicHistory) {
     this.goToPage = function(state){
         $state.go(state);
     };
@@ -71,4 +71,13 @@ angular.module('EmployeePanda.controllers')
                 }
             });
     };
+
+    this.goToHome = function() {
+    $ionicHistory.nextViewOptions({
+                            disableBack: true
+                          });
+            			$ionicHistory.clearHistory();
+             $state.go('app.vendorList');
+    };
+
 });

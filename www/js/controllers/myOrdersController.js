@@ -1,15 +1,16 @@
 angular.module('EmployeePanda.controllers')
-.controller('MyOrdersController', function($scope, $stateParams, EmployeeService, DetailsService, $state) {  
+.controller('MyOrdersController', function($scope, $stateParams, EmployeeService, DetailsService, $state, $ionicHistory) {
     this.employeeInfo = {
-    	"emailid": "vinod.khandelwal@accenture.com"
+    	"emailid": DetailsService.loginInfo.userInfo.get().emailid
     };
     
     $scope.myOrdersList = [];
     this.myOrdersList = [];
     EmployeeService.getMyOrders(this.employeeInfo.emailid).then(function(data){
-        
          // Order is Delivered
         var incompleteOrders = data.map(function(order, index, data){
+            console.log("MY DATA LIST ----> " + JSON.stringify(data));
+
             if(order.status !== 'Order is Delivered')
             {
                 return order;
@@ -21,9 +22,10 @@ angular.module('EmployeePanda.controllers')
 
         incompleteOrders.clean(null);
 
-
-
     	$scope.myOrdersList = incompleteOrders;
+
+    	console.log("MY ORDER LIST ----> " + JSON.stringify($scope.myOrdersList));
+
         this.myOrdersList = incompleteOrders;
 
         angular.element('#orderInfo').empty();
@@ -101,8 +103,12 @@ angular.module('EmployeePanda.controllers')
             });
         }
     };
-    
+
     this.goToHome = function() {
+    $ionicHistory.nextViewOptions({
+                            disableBack: true
+                          });
+            			$ionicHistory.clearHistory();
          $state.go('app.vendorList');
     }
 

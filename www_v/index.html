@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/ionicons.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/qrcode/jquery.qrcode.min.js"></script>
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/localStorage/angular-local-storage.min.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/utilities/utilities.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/loginController.js"></script>
+    <script src="js/controllers/splashController.js"></script>
+    <script src="js/controllers/vendorListController.js"></script>
+    <script src="js/controllers/signupController.js"></script>
+    <script src="js/controllers/vendorController.js"></script>
+    <script src="js/controllers/vendorMenuController.js"></script>
+    <script src="js/controllers/vendorOrderController.js"></script>
+    <script src="js/controllers/confirmOrderController.js"></script>
+    <script src="js/controllers/finishOrderController.js"></script>
+    <script src="js/controllers/myOrdersController.js"></script>
+    <script src="js/controllers/appMenuController.js"></script>
+    <script src="js/controllers/ratingController.js"></script>
+    <script src="js/directives/ratingDirective.js"></script>
+    <script src="js/services/loginServices.js"></script>
+    <script src="js/services/commonServices.js"></script>
+    <script src="js/services/detailsServices.js"></script>
+    <script src="js/services/employeeServices.js"></script>
+    <script src="js/services/vendorServices.js"></script>
+    <script src="js/services/pushNotificationServices.js"></script>
+  </head>
+
+  <body ng-app="EmployeePanda" class="platform-android platform-cordova platform-webview">
+    <ion-nav-view></ion-nav-view>
+  </body>
+</html>

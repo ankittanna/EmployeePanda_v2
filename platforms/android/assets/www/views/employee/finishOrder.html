@@ -1,6 +1,6 @@
 <ion-view view-title="Order">
   <ion-nav-title>
-        <img src="img/Home_TopBar_withoutIcons.png" style="height:60px">
+        <img src="img/Home_TopBar_withoutIcons.png" style="height:60px" ng-click="finishOrder.goToHome()">
     </ion-nav-title>
   <ion-content>
     <div class="list" style="margin-bottom: 0; background-image: url(../../img/{{ finishOrder.vendorInfo.imgname }})">
@@ -80,7 +80,7 @@
   </ion-content>
 
   <div class="bar bar-footer">
-         <button class="button button-balanced button-full" ng-click="finishOrder.backToHome()">Back to Home</button>
+         <button class="button button-balanced button-full" ng-click="finishOrder.goToHome()">Back to Home</button>
     </div>
 </ion-view>
 
