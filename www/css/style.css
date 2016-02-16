@@ -137,6 +137,7 @@ input[type=number]::-webkit-inner-spin-button {
     background-position: center;
     margin: auto;
     z-index: 2;
+    margin-bottom: 60px;
 }
 .bar, .bar .title {
     height:60px;
@@ -206,6 +207,8 @@ div.vendoritem div.transbox{
 
 .totalvalue {
     font-size: 120%;
+    margin-top: -30px;
+    ion-content
 }
 
 .button-full-footer {
@@ -273,3 +276,4 @@ white-space: normal;
     height: 100%;
     top:50%
 }
+

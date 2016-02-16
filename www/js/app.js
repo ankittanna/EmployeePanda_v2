@@ -27,7 +27,7 @@ angular.module('EmployeePanda', ['ionic', 'EmployeePanda.controllers', 'Employee
     stateOn: null,
     stateOff: null
 })
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
   $stateProvider
    .state('splashScreen', {
         url: '/splash',
@@ -138,4 +138,5 @@ angular.module('EmployeePanda', ['ionic', 'EmployeePanda.controllers', 'Employee
        });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/splash');
+  $ionicConfigProvider.views.maxCache(0);
 });

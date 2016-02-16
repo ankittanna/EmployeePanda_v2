@@ -101,5 +101,9 @@ angular.module('EmployeePanda.controllers')
             });
         }
     };
+    
+    this.goToHome = function() {
+         $state.go('app.vendorList');
+    }
 
 });

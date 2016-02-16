@@ -62,20 +62,17 @@ angular.module('EmployeePanda.controllers')
 	 	this.orderCost = this.calculateOrderCost();
 	 };
 
-	 this.decreaseCounter = function(counterId){
-	 	if(parseInt(angular.element('#counter'+counterId).val())>0){
-	 		// angular.element('#counter'+counterId).val(parseInt(angular.element('#counter'+counterId).val()) -1);
-	 		// this.vendorInfo.menu[counterId].quantity = parseInt(angular.element('#counter'+counterId).val());
-             this.vendorMenu[counterId].quantity = this.vendorMenu[counterId].quantity - 1;
+	 this.decreaseCounter = function(menuItem){
+	 	
+       if(menuItem.quantity>0){	 		
+             menuItem.quantity = menuItem.quantity - 1;
 	 	}
 	 	this.orderCost = this.calculateOrderCost();
 	 };
 
-	 this.increaseCounter = function(counterId){
-	 	if(parseInt(angular.element('#counter'+counterId).val())<50){
-	 		//angular.element('#counter'+counterId).val(parseInt(angular.element('#counter'+counterId).val()) +1);
-             this.vendorMenu[counterId].quantity = this.vendorMenu[counterId].quantity + 1;
-	 		//this.vendorInfo.menu[counterId].quantity = parseInt(angular.element('#counter'+counterId).val());
+	 this.increaseCounter = function(menuItem){
+	 	if(menuItem.quantity<50){	 		
+             menuItem.quantity = menuItem.quantity + 1;	 		
 	 	}
 	 	this.orderCost = this.calculateOrderCost();
 	 };
@@ -94,11 +91,9 @@ angular.module('EmployeePanda.controllers')
 	 	DetailsService.employeeOrder.employeeOrder.remove();
 
 	 	this.itemsOrdered = this.vendorInfo.menu.map(function(item, index, array){
-	 		if(item.quantity !== 0 && item.quantity > 0)
-	 		{
+	 		if(item.quantity !== 0 && item.quantity > 0){
 	 			return item;
-	 		} else 
-	 		{
+	 		} else {
 	 			return;
 	 		}
 	 	});
@@ -120,11 +115,17 @@ angular.module('EmployeePanda.controllers')
 	 	console.log('------> ' + JSON.stringify(this.orderDetails));
 	 	DetailsService.employeeOrder.employeeOrder.set(this.orderDetails);
 
-	 	$state.go('app.confirmOrder',{}, {reload: true});
+	 	$state.go('app.confirmOrder');
+         
 	 };
      
      this.goToHome = function() {
          $state.go('app.vendorList');
+     };
+     
+     this.clearList = function(){
+          angular.copy(DetailsService.vendorInfo.selectedVendor.get(), this.vendorInfo);
+          this.vendorMenu = this.vendorInfo.menu;
      };
 
 });
