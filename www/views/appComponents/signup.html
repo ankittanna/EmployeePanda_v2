@@ -16,9 +16,9 @@
             <p ng-show="signupForm.name.$invalid && signupForm.name.$error.maxlength && !signupForm.name.$pristine && submitted">Name cannot be more than 20 characters.</p>
             
             <label class="item item-input">
-              <input type="email" name="email" placeholder="Email" ng-model="data.emailid">
+              <input type="text" name="email" placeholder="Enterprize Id" ng-model="data.emailid" ng-pattern="/^[a-zA-Z/.]*$/">
             </label>
-            <p ng-show="signupForm.email.$invalid && !signupForm.email.$pristine && submitted">Enter a valid email.</p>
+            <p ng-show="signupForm.email.$invalid && !signupForm.email.$pristine && submitted">Enter valid Enterprizeid.</p>
             
             <label class="item item-input">
               <input type="number" name="phonenumber" placeholder="Mobile Number" ng-model="data.phonenumber" ng-minlength="10" ng-maxlength="10" required>
@@ -26,7 +26,7 @@
             <p ng-show="signupForm.phonenumber.$error.minlength && submitted">PhoneNumber should have 10 Digits</p>
             <p ng-show="signupForm.phonenumber.$error.maxlength && submitted">PhoneNumber should have 10 Digits</p>
           
-            <label class="item item-input item-select">
+            <!--<label class="item item-input item-select">
                         <div class="input-label">
                         Location
                         </div>
@@ -36,7 +36,7 @@
                             <option>PDC3</option>
                             <option>MDC1</option>
                         </select>
-            </label>
+            </label>-->
         </div>
         <button type="submit" class="button button-block button-assertive">Sign Up</button>
     </form>        
