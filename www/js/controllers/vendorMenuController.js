@@ -6,7 +6,9 @@ angular.module('EmployeePanda.controllers')
      this.vendorId = $stateParams.vendorId;
      
      // Fetch Vendor Information
-     this.vendorInfo = DetailsService.vendorInfo.selectedVendor.get();
+     this.vendorInfo = {};
+     
+     angular.copy(DetailsService.vendorInfo.selectedVendor.get(), this.vendorInfo);
 	 
 	 // Fetch Employee Information
 	 this.employeeInfo = DetailsService.loginInfo.userInfo.get();
@@ -62,16 +64,18 @@ angular.module('EmployeePanda.controllers')
 
 	 this.decreaseCounter = function(counterId){
 	 	if(parseInt(angular.element('#counter'+counterId).val())>0){
-	 		angular.element('#counter'+counterId).val(parseInt(angular.element('#counter'+counterId).val()) -1);
-	 		this.vendorInfo.menu[counterId].quantity = parseInt(angular.element('#counter'+counterId).val());
+	 		// angular.element('#counter'+counterId).val(parseInt(angular.element('#counter'+counterId).val()) -1);
+	 		// this.vendorInfo.menu[counterId].quantity = parseInt(angular.element('#counter'+counterId).val());
+             this.vendorMenu[counterId].quantity = this.vendorMenu[counterId].quantity - 1;
 	 	}
 	 	this.orderCost = this.calculateOrderCost();
 	 };
 
 	 this.increaseCounter = function(counterId){
 	 	if(parseInt(angular.element('#counter'+counterId).val())<50){
-	 		angular.element('#counter'+counterId).val(parseInt(angular.element('#counter'+counterId).val()) +1);
-	 		this.vendorInfo.menu[counterId].quantity = parseInt(angular.element('#counter'+counterId).val());
+	 		//angular.element('#counter'+counterId).val(parseInt(angular.element('#counter'+counterId).val()) +1);
+             this.vendorMenu[counterId].quantity = this.vendorMenu[counterId].quantity + 1;
+	 		//this.vendorInfo.menu[counterId].quantity = parseInt(angular.element('#counter'+counterId).val());
 	 	}
 	 	this.orderCost = this.calculateOrderCost();
 	 };
@@ -116,7 +120,11 @@ angular.module('EmployeePanda.controllers')
 	 	console.log('------> ' + JSON.stringify(this.orderDetails));
 	 	DetailsService.employeeOrder.employeeOrder.set(this.orderDetails);
 
-	 	$state.go('app.confirmOrder');
+	 	$state.go('app.confirmOrder',{}, {reload: true});
 	 };
+     
+     this.goToHome = function() {
+         $state.go('app.vendorList');
+     };
 
 });

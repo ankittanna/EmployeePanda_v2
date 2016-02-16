@@ -46,6 +46,12 @@ angular.module('EmployeePanda.controllers').controller('VendorCtrl', function($s
         {
             $state.go('app.vendorOrderList');
         };
+        
+        this.goToHome = function() {
+         $state.go('app.vendorHome');
+     };
+        
+        
     
 });
     

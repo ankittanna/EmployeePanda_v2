@@ -62,5 +62,9 @@ angular.module('EmployeePanda.controllers')
         formattedDateTime = orderDate.getDate() + '/' + (orderDate.getMonth() + 1) + '/' +  orderDate.getFullYear() + ' ' + strTime;
         return formattedDateTime;
     };
+    
+    this.goToHome = function() {
+         $state.go('app.vendorHome');
+     };
 
 });

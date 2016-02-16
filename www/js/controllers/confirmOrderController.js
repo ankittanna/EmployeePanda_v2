@@ -28,6 +28,11 @@ angular.module('EmployeePanda.controllers')
     };
 
     this.cancelOrder = function(){
-    	$state.go('app.vendorList');
+    	$state.go('app.vendorMenu');
     };
+    
+    this.goToHome = function() {
+         $state.go('app.vendorList');
+     };
+     
 });
