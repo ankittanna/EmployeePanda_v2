@@ -47,13 +47,22 @@ module.exports = [
         "clobbers": [
             "MFPPush"
         ]
+    },
+    {
+        "file": "plugins/phonegap-plugin-barcodescanner/www/barcodescanner.js",
+        "id": "phonegap-plugin-barcodescanner.BarcodeScanner",
+        "pluginId": "phonegap-plugin-barcodescanner",
+        "clobbers": [
+            "cordova.plugins.barcodeScanner"
+        ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
     "ibm-mfp-core": "1.0.10",
-    "ibm-mfp-push": "1.0.12"
+    "ibm-mfp-push": "1.0.12",
+    "phonegap-plugin-barcodescanner": "4.1.0"
 }
 // BOTTOM OF METADATA
 });

@@ -1,0 +1,44 @@
+<ion-view view-title="Orders" class="appcomponent vendororderlist" id="vendorOrderList">
+    <ion-nav-title>
+        <img src="img/Home_TopBar_withoutIcons.png" style="height:60px" ng-click="vendor.goToHome()">
+    </ion-nav-title>
+  <ion-content>
+      
+       <div class="list" style="margin-bottom: 0;">
+            <label class="item item-input vendoritem" style="background-image: url(img/{{ userInfo.imgname }})">
+           
+            <div class="row" style="position:absolute">
+                    <h1>{{userInfo.name}}</h1>
+             </div>
+                <div class="row" style="margin-top:100px">
+                    <div class="list list-inset" style="width:100%">
+                        <label class="item item-input">
+                            <i class="icon ion-search placeholder-icon"></i>
+                            <input type="text" placeholder="Search Orders" ng-model="VendorCtrl.searchOrderStr">
+                        </label>
+                    </div>
+                </div>
+                
+            </label>
+        </div>
+        
+        <label class="item-input">
+            <h2 class="title">Orders</h2>
+        </label>
+        
+
+   
+    <ion-list>
+      <ion-item ng-repeat="order in orders | filter: vendor.searchOrderStr track by $index" ng-click="vendor.selectOrder(order)">
+        <div class="row">
+            <div class="col">{{order.orderbyname}}</div>  
+            <div class="col" ng-show="order.status=='Order in Queue'"></div>
+            <div class="col" ng-show="order.status=='Order in Process'"><img src="img/inprocess.png" class="tickStyle"></div>
+            <div class="col" ng-show="order.status=='Order is Ready'"><img src="img/tick.png" class="tickStyle"></div>  
+            <div class="col" ng-show="order.status=='Order is Delivered'">Delivered</div>  
+            <div class="col">Rs. {{order.total}}</div>         
+        </div>        
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

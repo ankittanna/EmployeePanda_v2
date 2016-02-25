@@ -3,17 +3,19 @@ angular.module('EmployeePanda.controllers')
     this.orderDetails = DetailsService.confirmedOrderInfo.orderInfo.get();
     this.vendorDetails = DetailsService.employeeOrder.employeeOrder.get();
 
+    var orderDetailsString = this.orderDetails.ordernumber + '-' + this.orderDetails.orderby;
+
     // Fetch Vendor Information
     this.vendorInfo = DetailsService.vendorInfo.selectedVendor.get();
-    
+
     angular.element('#orderInfo').qrcode({
-        text    : this.orderDetails.ordernumber
+        text    : orderDetailsString
     });
 
     this.convertTimeFormat = function(time){
         var formattedDateTime;
         var orderDate = new Date(time);
-        
+
         var hours = orderDate.getHours();
         var minutes = orderDate.getMinutes();
         var ampm = hours >= 12 ? 'PM' : 'AM';
@@ -21,7 +23,7 @@ angular.module('EmployeePanda.controllers')
         hours = hours ? hours : 12;
         minutes = minutes < 10 ? '0'+minutes : minutes;
         var strTime = hours + ':' + minutes + ' ' + ampm;
-        
+
         formattedDateTime = orderDate.getDate() + '/' + (orderDate.getMonth() + 1) + '/' +  orderDate.getFullYear() + ' ' + strTime;
         return formattedDateTime;
     };

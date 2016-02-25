@@ -1,0 +1,35 @@
+<ion-view view-title="Vendor" class="appcomponent vendormenu" id="vendorHomeScreen">
+    <ion-nav-title>
+        <img src="img/Home_TopBar_withoutIcons.png" style="height:60px">
+    </ion-nav-title>
+    <ion-content>
+
+        <div class="list" style="margin-bottom: 0;">
+            <label class="item item-input vendoritem" style="background-image: url(img/{{ userInfo.imgname }})">
+
+                <div class="row" style="position:absolute">
+                    <h1>{{userInfo.name}}</h1>
+                </div>
+            </label>
+        </div>
+
+        <label class="item-input">
+            <h2 class="title">Pending Orders</h2>
+        </label>
+
+
+        <div class="circle" ng-click="vendor.goToOrderList()">
+                <h2 class="alignPendingOrders">{{orders.length}} Pending</h2>
+        </div>
+
+    </ion-content>
+    
+     <div class="bar bar-footer">       
+        <button class="button button-balanced" ng-click="VendorCtrl.getOrders()">Refresh</button>
+    </div>
+    
+    <div class="bar bar-footer">       
+        <button class="button button-balanced button-full-footer" ng-click="VendorCtrl.getOrders()"><p class="title">Refresh<p></button>
+    </div>
+    
+</ion-view>

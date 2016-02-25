@@ -35,6 +35,10 @@
                         {
                             "xml": "<feature name=\"MFPPushPlugin\"><param name=\"ios-package\" value=\"CDVMFPPush\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"BarcodeScanner\"><param name=\"ios-package\" value=\"CDVBarcodeScanner\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -46,6 +50,9 @@
             "PACKAGE_NAME": "com.ionicframework.starter"
         },
         "ibm-mfp-push": {
+            "PACKAGE_NAME": "com.ionicframework.starter"
+        },
+        "phonegap-plugin-barcodescanner": {
             "PACKAGE_NAME": "com.ionicframework.starter"
         }
     },
@@ -98,10 +105,19 @@
             "clobbers": [
                 "MFPPush"
             ]
+        },
+        {
+            "file": "plugins/phonegap-plugin-barcodescanner/www/barcodescanner.js",
+            "id": "phonegap-plugin-barcodescanner.BarcodeScanner",
+            "pluginId": "phonegap-plugin-barcodescanner",
+            "clobbers": [
+                "cordova.plugins.barcodeScanner"
+            ]
         }
     ],
     "plugin_metadata": {
         "ibm-mfp-core": "1.0.10",
-        "ibm-mfp-push": "1.0.12"
+        "ibm-mfp-push": "1.0.12",
+        "phonegap-plugin-barcodescanner": "4.1.0"
     }
 }

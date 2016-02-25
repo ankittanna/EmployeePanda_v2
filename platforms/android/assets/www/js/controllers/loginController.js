@@ -1,7 +1,7 @@
 angular.module('EmployeePanda.controllers', [])
 .controller('LoginCtrl', function($scope, EPS, $state, $ionicPopup, DetailsService) {
     $scope.data = {};
-     $scope.data.emailid = "vinod.khandelwal@accenture.com";
+     $scope.data.emailid = "gcc@gmail.com";
      $scope.data.password = "password";
 
     this.login = function() {

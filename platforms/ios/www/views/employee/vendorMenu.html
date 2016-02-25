@@ -1,0 +1,73 @@
+<ion-view view-title="Vendor Menu" class="appcomponent vendormenu">
+    <ion-nav-title>
+        <img src="img/Home_TopBar_withoutIcons.png" style="height:60px" ng-click="vendorMenu.goToHome()">
+    </ion-nav-title>
+    <ion-content>
+        <div class="list" style="margin-bottom: 0; background-image: url(../../img/{{ vendorMenu.vendorInfo.imgname }})">
+            <label class="item item-input vendoritem" style="background-image: url(img/{{ vendorMenu.vendorInfo.imgname }})">
+
+            <div class="row" style="position:absolute">
+                    <h1>{{vendorMenu.vendorInfo.name}}</h1>
+             </div>
+                <div class="row" style="margin-top:100px">
+                    <div class="list list-inset" style="width:100%">
+                        <label class="item item-input">
+                            <i class="icon ion-search placeholder-icon"></i>
+                            <input type="text" placeholder="Search" ng-model="vendorMenu.searchMenuKey">
+                        </label>
+                    </div>
+                </div>
+
+            </label>
+        </div>
+
+        <div class="item item-image">
+            <!--<img src="img/rest1.jpg">-->
+        </div>
+        <div class="button-bar">
+            <!--<a class="button button-positive active" ng-click="vendorMenu.switchMenuCategory('veg')">Veg</a>
+      <a class="button" ng-click="vendorMenu.switchMenuCategory('nonveg')">Non-Veg</a>-->
+        </div>
+        <ion-list>
+            <ion-item ng-repeat="menuItem in vendorMenu.vendorMenu | filter:vendorMenu.searchMenuKey track by menuItem._id" class="menuItemHeight">
+                <div class="row">
+                    <div class="col-40 wrap">{{menuItem.itemname}}<br><b>(Rs. {{menuItem.rate}})</b></div>
+                    <div class="col-10">
+                        <img src="img/veg.png" class="vegNonvegIcon" ng-show="{{menuItem.category === 'Veg'}}">
+                        <img src="img/nonveg.png" class="vegNonvegIcon" ng-show="{{menuItem.category === 'Non-Veg'}}">
+                    </div>
+                    <div class="col-40">
+                        <div class="row">
+                            <div class="col divContentCenter">
+                                <button class="button button-assertive button-small" ng-click="vendorMenu.decreaseCounter(menuItem)">
+                                    <i class="icon ion-minus-round"></i>
+                                </button>
+                            </div>
+                            <div class="col divContentCenter">
+                                <input id="counter{{menuItem._id}}" type="number" value="0" class="inputTypeNumber" min="0" ng-model="menuItem.quantity"
+                                ng-change="vendorMenu.updateOrderQuantity()">
+                            </div>
+                            <div class="col divContentCenter">
+                                <button class="button button-balanced button-small" ng-click="vendorMenu.increaseCounter(menuItem)">
+                                    <i class="icon ion-plus-round"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
+        <div class="row"></div>
+
+    </ion-content>
+
+    <div class="bar bar-footer">
+        <div class="col"><button class="button button-balanced" ng-click="vendorMenu.clearList()">Clear</button></div>
+
+        <div class="col"><b>Total: Rs. {{vendorMenu.orderCost}}</b></div>
+
+        <div class="col" style="text-align:right"><button class="button button-balanced" ng-click="vendorMenu.proceedToCheckout()">Checkout</button></div>
+
+    </div>
+
+</ion-view>

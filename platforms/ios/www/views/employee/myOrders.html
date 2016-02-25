@@ -1,0 +1,76 @@
+<ion-view view-title="My Orders" class="appcomponent vendormenu">
+  <ion-nav-title>
+      <img src="img/Home_TopBar_withoutIcons.png" style="height:60px" ng-click="myOrders.goToHome()">
+    </ion-nav-title>
+  <ion-content on-swipe-left="myOrders.swipeLeft()" on-swipe-right="myOrders.swipeRight()">
+
+    <div class="row">
+      <div class="col-10"></div>
+      <div class="col textAlignCenter">
+             <h2 class="title">Order Confirmation ({{myOrders.currentIndex+1}}/{{myOrdersList.length}})</h2>
+      </div>
+      <div class="col-10"></div>
+    </div>
+
+    <div class="card orderCard">
+      <div class="item-text-wrap">
+
+        <ion-list>
+          <div class="row">
+            <div class="col-10"></div>
+            <div class="col textAlignCenter">
+                   <h2 class="title">{{myOrdersList[myOrders.currentIndex].ordertoname}}</h2>
+            </div>
+            <div class="col-10"></div>
+          </div>
+
+          <label class="item item-input">
+            <div class="row">
+              <div class="col"><b>Order Id</b><br>{{myOrdersList[myOrders.currentIndex].ordernumber}}</div>
+              <div class="col"><b>Date & Time</b><br>{{myOrders.convertTimeFormat(myOrdersList[myOrders.currentIndex].ordertime)}}</div>
+            </div>
+          </label>
+
+            <ion-item>
+              <div class="row">
+                  <div class="col">
+                      <div class="row">
+                        <div class="col">
+                          <img src="img/location.png" class="locationIcon">PDC1
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                            <img src="img/clock.png" class="clockIcon">ETA 20 Mins
+                        </div>
+                      </div>
+                      <div class="row">
+                          <div class="col">
+                            <b>Order Status: </b><label class="{{myOrdersList[myOrders.currentIndex].status == 'Order is Ready'?'readyStatus':'inProgressStatus'}}">{{myOrdersList[myOrders.currentIndex].status}}</label>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col">
+                    <div class="row">
+                      <div id="orderInfo" class="qrcode">
+
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </ion-item>
+              <ion-item>
+                  <div class="row">
+                      <div class="col textAlignCenter"><b>Total Value: </b>Rs. <label>{{myOrdersList[myOrders.currentIndex].totalCost}}</label></div>
+                  </div>
+                </ion-item>
+          </ion-list>
+      </div>
+    </div>
+ <!-- <div star-rating ng-model="rating.rating1" max="10" on-rating-select="rating.rateFunction(rating)"></div> -->
+  </ion-content>
+
+  <div class="bar bar-footer">
+         <button class="button button-balanced button-full" ng-click="myOrders.backToHome()">Back to Home</button>
+    </div>
+</ion-view>

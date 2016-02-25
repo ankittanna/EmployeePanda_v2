@@ -86,6 +86,14 @@ module.exports = [
         "clobbers": [
             "MFPPush"
         ]
+    },
+    {
+        "file": "plugins/phonegap-plugin-barcodescanner/www/barcodescanner.js",
+        "id": "phonegap-plugin-barcodescanner.BarcodeScanner",
+        "pluginId": "phonegap-plugin-barcodescanner",
+        "clobbers": [
+            "cordova.plugins.barcodeScanner"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -98,7 +106,8 @@ module.exports.metadata =
     "cordova-plugin-whitelist": "1.2.1",
     "ionic-plugin-keyboard": "1.0.8",
     "ibm-mfp-core": "1.0.10",
-    "ibm-mfp-push": "1.0.12"
+    "ibm-mfp-push": "1.0.12",
+    "phonegap-plugin-barcodescanner": "4.1.0"
 }
 // BOTTOM OF METADATA
 });

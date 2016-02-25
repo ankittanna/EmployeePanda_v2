@@ -3,7 +3,7 @@ angular.module('EmployeePanda.controllers')
     this.employeeInfo = {
     	"emailid": DetailsService.loginInfo.userInfo.get().emailid
     };
-    
+
     $scope.myOrdersList = [];
     this.myOrdersList = [];
     EmployeeService.getMyOrders(this.employeeInfo.emailid).then(function(data){
@@ -14,7 +14,7 @@ angular.module('EmployeePanda.controllers')
             if(order.status !== 'Order is Delivered')
             {
                 return order;
-            } else 
+            } else
             {
                 return;
             }
@@ -28,13 +28,15 @@ angular.module('EmployeePanda.controllers')
 
         this.myOrdersList = incompleteOrders;
 
+        var orderInfoString = JSON.stringify($scope.myOrdersList[0].ordernumber) + '-' + DetailsService.loginInfo.userInfo.get().emailid;
+
         angular.element('#orderInfo').empty();
         angular.element('#orderInfo').qrcode({
-            text: JSON.stringify($scope.myOrdersList[0].ordernumber)
+            text: orderInfoString
         });
 
     });
-    
+
     this.currentIndex = 0;
 
     this.calculateOrderAmount = function(orderedItems)
@@ -60,7 +62,7 @@ angular.module('EmployeePanda.controllers')
         {
             orderDate = new Date(time);
         }
-        
+
 
         var hours = orderDate.getHours();
         var minutes = orderDate.getMinutes();
@@ -69,7 +71,7 @@ angular.module('EmployeePanda.controllers')
         hours = hours ? hours : 12;
         minutes = minutes < 10 ? '0'+minutes : minutes;
         var strTime = hours + ':' + minutes + ' ' + ampm;
-        
+
         formattedDateTime = orderDate.getDate() + '/' + (orderDate.getMonth() + 1) + '/' +  orderDate.getFullYear() + ' ' + strTime;
         return formattedDateTime;
     };
@@ -83,10 +85,12 @@ angular.module('EmployeePanda.controllers')
         if(this.currentIndex > 0)
         {
             this.currentIndex = this.currentIndex - 1;
-            
+
+            var orderInfoString = JSON.stringify($scope.myOrdersList[this.currentIndex].ordernumber) + '-' + $scope.myOrdersList[this.currentIndex].orderby;
+
             angular.element('#orderInfo').empty();
             angular.element('#orderInfo').qrcode({
-                text: JSON.stringify($scope.myOrdersList[this.currentIndex].ordernumber)
+                text: orderInfoString
             });
         }
     };
@@ -96,10 +100,12 @@ angular.module('EmployeePanda.controllers')
         if(this.currentIndex < $scope.myOrdersList.length - 1)
         {
             this.currentIndex = this.currentIndex + 1;
-            
+
+            var orderInfoString = JSON.stringify($scope.myOrdersList[this.currentIndex].ordernumber) + '-' + $scope.myOrdersList[this.currentIndex].orderby;
+
             angular.element('#orderInfo').empty();
             angular.element('#orderInfo').qrcode({
-                text: JSON.stringify($scope.myOrdersList[this.currentIndex].ordernumber)
+                text: orderInfoString
             });
         }
     };

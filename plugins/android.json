@@ -27,6 +27,9 @@
         },
         "ibm-mfp-push": {
             "PACKAGE_NAME": "com.ionicframework.starter"
+        },
+        "phonegap-plugin-barcodescanner": {
+            "PACKAGE_NAME": "com.ionicframework.starter"
         }
     },
     "dependent_plugins": {

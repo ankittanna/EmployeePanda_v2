@@ -1,0 +1,41 @@
+<ion-view view-title="Order" class="appcomponent vendormenu">
+    <ion-nav-title>
+        <img src="img/Home_TopBar_withoutIcons.png" style="height:60px" ng-click="confirmOrder.goToHome()">
+    </ion-nav-title>
+  <ion-content>
+       <div class="list" style="margin-bottom: 0;">
+            <label class="item item-input vendoritem" style="background-image: url(img/{{ confirmOrder.vendorInfo.imgname }})">
+
+            <div class="row" style="position:absolute">
+                    <h1>{{confirmOrder.orderDetails.vendorName}}</h1>
+             </div>
+            </label>
+        </div>
+    <label class="item-input">
+        <h2 class="title">Confirm Order</h2>
+    </label>
+
+    <ion-list>
+      <ion-item ng-repeat="orderItem in confirmOrder.orderDetails.ordereditems">
+        <div class="row">
+            <div class="col-50">{{orderItem.itemname}}</div>
+            <div class="col">{{orderItem.quantity}}</div>
+            <div class="col">Rs. {{orderItem.quantity*orderItem.rate}}</div>
+        </div>
+      </ion-item>
+    </ion-list>
+
+    <div class="row totalvalue">
+        <div class="col"></div>
+        <div class="col"><b>Total Value</b></div>
+        <div class="col">Rs. {{confirmOrder.orderDetails.totalCost}}</div>
+    </div>
+
+ <!-- <div star-rating ng-model="rating.rating1" max="10" on-rating-select="rating.rateFunction(rating)"></div> -->
+  </ion-content>
+
+  <div class="bar bar-footer">
+         <button class="button button-assertive" ng-click="confirmOrder.cancelOrder()">Cancel</button>
+         <button class="button button-balanced" ng-click="confirmOrder.confirmOrder()"> Confirm </button>
+    </div>
+</ion-view>
